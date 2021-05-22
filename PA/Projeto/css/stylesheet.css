@@ -1,3 +1,9 @@
+/*Rolagem suave*/
+
+html{
+  scroll-behavior:smooth;
+}
+
 /*Geral*/
 
 body{
@@ -9,7 +15,7 @@ body{
 }
 
 .container{
-    padding: 40px 0;
+    padding: 35px 0;
 }
 
 .navbar-color-content{
@@ -90,40 +96,88 @@ header ,.navbar{
     background-color: #F9F9F9;
   }
   
-  .main-title {
+.main-title {
     color: #444;
     margin: 0 0 65px 0;
     font-size: 40px;
     text-align: center;
-  }
+}
   
-  .main-title::after {
-    content: "";
-    border-top: 2px solid #333;
-    width: 15%;
-    position: absolute;
-    top: 60px;
-    left: 42.5%;
-  }
+.main-title::after {
+  content: "";
+  border-top: 2px solid #333;
+  width: 15%;
+  position: absolute;
+  top: 60px;
+  left: 42.5%;
+}
   
-  .about-title {
-    font-size: 17px;
-    color: #444;
-    text-transform: uppercase;
-    font-weight: bold;
+.about-title {
+  font-size: 17px;
+  color: #444;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+  /*Como doar*/
+
+  #how-to-donate{
+    background-color: white;
   }
 
-  /* Equipe*/ 
+/* Equipe*/ 
 
+  .team-area{
+    background-color: #F9F9F9;
+  }
+ 
   .col-sm-2{
-      margin-left: 44px;
+      margin-left: 2em;
   }
 
 .card-body {
     text-align: center;
+    padding-bottom: 7px;
 }
 
-/* Footer */
+  .card-title{
+    font-size: 16px;
+  }
+
+
+/* Call To Action / Botao */
+
+#call-area{
+  background-color:#353D41;
+}
+
+#call-area .row {
+  display: block;
+  text-align: center;
+}
+
+#call-area #call-btn {
+  background-color: #FFF;
+  color: #353D41;
+  font-weight: bold;
+  margin-left: 20px;
+  font-size: 20px;
+  width: 20rem;
+  letter-spacing: 2px;
+  border-color: #F9F9F9;
+  border-width: 3px;
+  border-radius: 10px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+#call-area #call-btn:hover{
+  border-color: gray;
+}
+
+/* Rodape */
 
 #contact-area {
     text-align: center;
@@ -132,7 +186,7 @@ header ,.navbar{
   .contact-box {
     padding-bottom: 50px;
     margin-bottom: 50px;
-    border-bottom: 1px solid #3EC1D5;
+    border-bottom: 1px solid whitesmoke
   }
   
   .contact-box i {
