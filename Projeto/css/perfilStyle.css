@@ -1,0 +1,59 @@
+/*Geral*/
+
+body{
+    font-family: 'Roboto',sans-serif;
+}
+
+.row{
+    margin: 0;
+}
+
+.container{
+    padding: 35px 35px;
+
+}
+
+.navbar-color-content{
+    color: azure; 
+}
+
+/*Navbar*/
+header ,.navbar{
+    background-color: #353D41;
+}
+
+#nav-container{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#logo {
+    width: 55px;
+}
+
+.navbar-brand{
+    padding: 0;
+    color: rgb(255, 255, 255);
+}
+
+.navbar-brand:hover{
+    color: rgba(255, 255, 255, 0.705);
+}
+
+#navbar-links a{
+    color: rgb(253, 253, 253);
+}
+
+#navbar-links a:hover{
+    color:rgba(255, 255, 255, 0.637);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link{
+    padding: 1rem;
+}
+/*  SDd dsa  */
+
+.container{
+    margin-top: 50px;
+    padding-top: 800px;
+}
