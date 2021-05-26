@@ -24,7 +24,7 @@ header ,.navbar{
 
 #nav-container{
     padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 80px;
 }
 
 #logo {
@@ -51,9 +51,53 @@ header ,.navbar{
 .navbar-expand-lg .navbar-nav .nav-link{
     padding: 1rem;
 }
-/*  SDd dsa  */
 
-.container{
-    margin-top: 50px;
-    padding-top: 800px;
+
+/*  Usuario  */
+
+#user-data{
+    background-color: rgb(233, 233, 233);
+    padding-bottom: 50px;
+}
+
+input{
+    border-radius: 10px;
+    border-color: black;
+    outline: none;
+}
+
+#button{
+    width: 300px;
+    justify-items: center;
+    margin-left: 500px;
+    margin-top: 10px;
+}
+ 
+/*COmo doar*/
+
+#how-to-donate-area{
+    background-color: white;
+}
+
+
+/*  Formulário de doacao  */
+#donation-data{
+    background-color: rgba(233, 233, 233);
+    border-width: 2px;
+    margin-left: 0px;
+    margin-bottom: 0;
+    padding: 35px;
+}
+
+#maneira-doacao{
+    padding-top: 0px;
+    margin-top: 0;
+}
+
+#button_donate{
+    width: 300px;
+    justify-items: center;
+    margin-left: 500px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
