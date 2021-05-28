@@ -15,8 +15,8 @@
         }
 
         //Cadastrar usuario
-        public function register($CPFCNPJ,$nome_completo,$nome_usuario,$email,$senha,$endereco,
-        $n_endereco,$bairro,$complemento,$cidade,$uf,$cep,$pais){
+        public function register($nome_completo,$nome_usuario,$CPFCNPJ,$email,$senha,$endereco,
+        $nr_endereco){
             global $pdo;
 
             //Verificar se o usuario ja esta cadastrado
@@ -24,25 +24,20 @@
             $sql->bindValue(":e",$email);
             $sql->execute();
 
-            if($sql->rowCount()> 0 ){ //ja tem cadastro
+            if($sql->rowCount() > 0 ){ //ja tem cadastro
                 return false; 
             }else {
-                $sql->prepare("INSERT INTO tbdPessoa (cd_CPFCNPJ,ds_NomeCompleto,ds_NomeUsuario,ds_Email,
-                ds_Senha,ds_Complemento,ds_Enderecov,nr_Endereco,ds_Bairro,ds_Cidade,cd_UF,cd_CEP,ds_Pais)
-                VALUES (:c,:nc,:nu,:e,:s,:cm,:en,:nem,:b,:ci,:uf,:cep,:p)");
-                $sql->bindValue(":c",$CPFCNPJ);
+                $sql = $pdo->prepare("INSERT INTO tbdPessoa (ds_NomeCompleto,ds_NomeUsuario,cd_CPFCNPJ,
+                ds_Email,ds_Senha,ds_Endereco,nr_Endereco)
+                VALUES (:nc,:nu,:c,:e,:s,:en,:nen)");
+            
                 $sql->bindValue(":nc",$nome_completo);
                 $sql->bindValue(":nu",$nome_usuario);
+                $sql->bindValue(":c",$CPFCNPJ);
                 $sql->bindValue(":e",$email);
-                $sql->bindValue(":s",$senha);
-                $sql->bindValue(":cm",$complemento);
+                $sql->bindValue(":s",md5($senha));
                 $sql->bindValue(":en",$endereco);
-                $sql->bindValue(":nem",$n_endereco);
-                $sql->bindValue(":b",$bairro);
-                $sql->bindValue(":ci",$cidade);
-                $sql->bindValue(":uf",$uf);
-                $sql->bindValue(":cep",$cep);
-                $sql->bindValue(":p",$pais);
+                $sql->bindValue(":nen",$nr_endereco);
                 $sql->execute();
                 return true;
             }

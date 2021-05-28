@@ -1,5 +1,5 @@
 <?php 
-    require_once 'classes/usuario.php';
+    require_once 'classes\usuario.php';
     $u = new usuario();
 ?>
 
@@ -35,6 +35,7 @@
                         <h2>Cadastre-se</h2>
                     </div>
 
+                    <!-- Primeira coluna-->
                     <div class="row align-items-start text-center">
                         <div class="col">
                             <div class="mb-3">
@@ -47,11 +48,13 @@
                                 <input type="text" class="form-control" id="name-user" name="name-user"
                                     placeholder="nome de usuario" maxlength="15">
                             </div>
+
                             <div class="mb-3">
-                                <label for="CPF-CNPJ" class="form-label">CNPJ ou CPF:</label>
-                                <input type="email" class="form-control" id="CPF-CNPJ" name="CPF-CNPJ"
-                                    placeholder="CNPJ ou CPF" maxlength="15">
+                                <label for="cpf-cnpj" class="form-label">CPF ou CNPJ:</label>
+                                <input type="text" class="form-control" id="cpf-cnpj"
+                                    name="cpf-cnpj" placeholder="cpj ou cnpj" maxlength="32">
                             </div>
+
                             <div class="mb-3">
                                 <label for="password" class="form-label">Senha:</label>
                                 <input type="password" class="form-control" id="password" name="password"
@@ -64,7 +67,7 @@
                                     name="confirm-password" placeholder="confirmar senha" maxlength="32">
                             </div>
                         </div>
-
+                        <!-- SEgunda coluna-->
                         <div class="col">
                             <div class="mb-3">
                                 <label for="address" class="form-label">Endereco:</label>
@@ -87,8 +90,13 @@
                                 <input type="text" class="form-control" id="country" name="country" placeholder="país"
                                     maxlength="30">
                             </div>
-
+                            <div class="mb-3">
+                                <label for="confirm-password" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email"
+                                    name="email" placeholder="email@email" maxlength="40">
+                            </div>
                         </div>
+                        <!-- Terceira coluna-->
                         <div class="col">
                             <div class="mb-3">
                                 <label for="number-address" class="form-label">Número:</label>
@@ -110,11 +118,10 @@
                                 <label for="cep" class="form-label">CEP:</label>
                                 <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" maxlength="9">
                             </div>
-
                         </div>
-                    </div>
+                    </div>  
 
-                    <button type="submit" class="btn btn-success btn-block btn-lg">Cadastrar</button>
+                    <button type="submit" class="btn btn-success btn-block btn-lg" name="button">Cadastrar</button>
 
                     <div>
                         <p>Ja possui uma conta? <a href="login.html">Logar</a></p>
@@ -127,32 +134,28 @@
     </div>
     <?php 
         //Verificar se clicou no botao
-        if(isset($_POST['full-name'])){
+        if(isset($_POST['button'])){
+
             $nome_completo = addslashes($_POST['full-name']);
             $nome_usuario = addslashes($_POST['name-user']);
-            $CPFCNPJ = addslashes($_POST['CPF-CNPJ']);
+            $CPFCNPJ = addslashes($_POST['cpf-cnpj']);
             $email = addslashes($_POST['email']);
             $senha = addslashes($_POST['password']);
             $conf_senha = addslashes($_POST['confirm-password']);
             $endereco = addslashes($_POST['address']);
-            $n_endereco = addslashes($_POST['number-address']);
-            $bairro = addslashes($_POST['district']);
-            $complemento = addslashes($_POST['complement']);
-            $cidade = addslashes($_POST['city']);
-            $uf = addslashes($_POST['uf']);
-            $cep = addslashes($_POST['cep']);
-            $pais = addslashes($_POST['country']);
+            $nr_endereco = addslashes($_POST['number-address']);
+            
 
-            if(!empty($CPFCNPJ) && !empt1y($nome_completo) && !empty($nome_usuario) && !empty($email) &&
-            !empty($senha) && !empty($endereco) && !empty($n_endereco) && !empty($bairro) && !empty($complemento) &&
-            !empty($cidade) && !empty($uf) && !empty($cep) && !empty($pais)){
+            if(!empty($nome_completo) && !empty($nome_usuario) && !empty($CPFCNPJ) && !empty($email) &&
+            !empty($senha) && !empty($endereco) && !empty($nr_endereco) ){
+
                 $u->conect("projeto_aplicacao","localhost","root","");
 
                 if($u->msmErro==""){ //Nao deu erro
 
                     if($senha==$conf_senha){   //Confirmar a senha
-                        if($u->register($CPFCNPJ,$nome_completo,$nome_usuario,$email,$senha,$endereco,
-                            $n_endereco,$bairro,$complemento,$cidade,$uf,$cep,$pais)){
+                        if($u->register($nome_completo,$nome_usuario,$CPFCNPJ,$email,$senha,$endereco,
+                        $nr_endereco)){  //Verificar se o cadastro deu certo
                             echo "Cadastrado com sucesso";
                         }else{
                             echo "ja cadastrado";
