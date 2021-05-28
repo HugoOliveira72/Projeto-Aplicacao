@@ -144,10 +144,16 @@
             $conf_senha = addslashes($_POST['confirm-password']);
             $endereco = addslashes($_POST['address']);
             $nr_endereco = addslashes($_POST['number-address']);
+            $complemento = addslashes($_POST['complement']);
+            if(empty($complemento)){
+                $complemento = "Sem complemento";
+            }else{
+                
+            }
             
 
             if(!empty($nome_completo) && !empty($nome_usuario) && !empty($CPFCNPJ) && !empty($email) &&
-            !empty($senha) && !empty($endereco) && !empty($nr_endereco) ){
+            !empty($senha) && !empty($endereco) && !empty($nr_endereco) && !empty($complemento)){
 
                 $u->conect("projeto_aplicacao","localhost","root","");
 
@@ -155,7 +161,7 @@
 
                     if($senha==$conf_senha){   //Confirmar a senha
                         if($u->register($nome_completo,$nome_usuario,$CPFCNPJ,$email,$senha,$endereco,
-                        $nr_endereco)){  //Verificar se o cadastro deu certo
+                        $nr_endereco,$complemento)){  //Verificar se o cadastro deu certo
                             echo "Cadastrado com sucesso";
                         }else{
                             echo "ja cadastrado";

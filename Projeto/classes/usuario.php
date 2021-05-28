@@ -16,7 +16,7 @@
 
         //Cadastrar usuario
         public function register($nome_completo,$nome_usuario,$CPFCNPJ,$email,$senha,$endereco,
-        $nr_endereco){
+        $nr_endereco,$complemento){
             global $pdo;
 
             //Verificar se o usuario ja esta cadastrado
@@ -28,8 +28,8 @@
                 return false; 
             }else {
                 $sql = $pdo->prepare("INSERT INTO tbdPessoa (ds_NomeCompleto,ds_NomeUsuario,cd_CPFCNPJ,
-                ds_Email,ds_Senha,ds_Endereco,nr_Endereco)
-                VALUES (:nc,:nu,:c,:e,:s,:en,:nen)");
+                ds_Email,ds_Senha,ds_Endereco,nr_Endereco,ds_Complemento)
+                VALUES (:nc,:nu,:c,:e,:s,:en,:nen,:com)");
             
                 $sql->bindValue(":nc",$nome_completo);
                 $sql->bindValue(":nu",$nome_usuario);
@@ -38,6 +38,7 @@
                 $sql->bindValue(":s",md5($senha));
                 $sql->bindValue(":en",$endereco);
                 $sql->bindValue(":nen",$nr_endereco);
+                $sql->bindValue(":com",$complemento);
                 $sql->execute();
                 return true;
             }
