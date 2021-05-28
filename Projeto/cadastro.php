@@ -144,16 +144,20 @@
             $conf_senha = addslashes($_POST['confirm-password']);
             $endereco = addslashes($_POST['address']);
             $nr_endereco = addslashes($_POST['number-address']);
+            $bairro = addslashes($_POST['district']);
             $complemento = addslashes($_POST['complement']);
             if(empty($complemento)){
                 $complemento = "Sem complemento";
-            }else{
-                
             }
+            $cidade = addslashes($_POST['city']);
+            $uf = addslashes($_POST['uf']);
+            $cep = addslashes($_POST['cep']);
+            $pais = addslashes($_POST['country']);
             
 
             if(!empty($nome_completo) && !empty($nome_usuario) && !empty($CPFCNPJ) && !empty($email) &&
-            !empty($senha) && !empty($endereco) && !empty($nr_endereco) && !empty($complemento)){
+            !empty($senha) && !empty($endereco) && !empty($nr_endereco) && !empty($bairro) 
+            && !empty($complemento) && !empty($cidade) && !empty($uf) && !empty($cep) && !empty($pais)){
 
                 $u->conect("projeto_aplicacao","localhost","root","");
 
@@ -161,7 +165,7 @@
 
                     if($senha==$conf_senha){   //Confirmar a senha
                         if($u->register($nome_completo,$nome_usuario,$CPFCNPJ,$email,$senha,$endereco,
-                        $nr_endereco,$complemento)){  //Verificar se o cadastro deu certo
+                        $nr_endereco,$bairro,$complemento,$cidade,$uf,$cep,$pais)){  //Verificar se o cadastro deu certo
                             echo "Cadastrado com sucesso";
                         }else{
                             echo "ja cadastrado";
