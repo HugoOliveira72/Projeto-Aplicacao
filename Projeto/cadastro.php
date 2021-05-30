@@ -3,7 +3,7 @@
     $u = new usuario();
 ?>
 
-<!DOCTYPE html>
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -20,51 +20,64 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/cadastroStyle.css">
-    <script src="js/cadastroScript.js"></script>
+    <link rel="stylesheet" href="css\cadastroStyle.css">
+    <script src="js\cadastroScript.js"></script>
     <title>Cadastro</title>
 </head>
 
 <body>
 
-    <div class="container">
-        <div class="justify-content-center align-item-center row">
-            <div class="col-12">
-                <form method="POST" class="needs-validation form-register" novalidate>
-                    <div class="text-center mb-2">
-                        <h2>Cadastre-se</h2>
-                    </div>
+    <div id="div1">
+        qualquer coisa
+    </div>
 
+    <div class="container md-12" id="form-register">
+        <div class="justify-content-center align-item-center row">
+            <div class="md-6">
+                <form method="POST" class="needs-validation" novalidate>
+                    <div class="text-center mb-2">
+                        <h4>Cadastre-se</h4>
+                    </div>
                     <!-- Primeira coluna-->
                     <div class="row align-items-start text-center">
                         <div class="col">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nome completo:</label>
                                 <input type="text" class="form-control" id="full-name" name="full-name"
-                                    placeholder="Prencha seu nome completo" maxlength="50">
+                                    placeholder="Prencha seu nome completo" maxlength="50" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="name-user" class="form-label">Nome de usuário</label>
                                 <input type="text" class="form-control" id="name-user" name="name-user"
-                                    placeholder="nome de usuario" maxlength="15">
+                                    placeholder="nome de usuario" maxlength="15" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="cpf-cnpj" class="form-label">CPF ou CNPJ:</label>
                                 <input type="text" class="form-control" id="cpf-cnpj"
-                                    name="cpf-cnpj" placeholder="cpj ou cnpj" maxlength="32">
+                                    name="cpf-cnpj" placeholder="cpj ou cnpj" maxlength="32" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">Senha:</label>
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="senha" maxlength="32">
+                                    placeholder="senha" maxlength="32" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="confirm-password" class="form-label">Confirmar Senha:</label>
                                 <input type="password" class="form-control" id="confirm-password"
-                                    name="confirm-password" placeholder="confirmar senha" maxlength="32">
+                                    name="confirm-password" placeholder="confirmar senha" maxlength="32" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
                         </div>
                         <!-- SEgunda coluna-->
@@ -72,51 +85,72 @@
                             <div class="mb-3">
                                 <label for="address" class="form-label">Endereco:</label>
                                 <input type="text" class="form-control" id="address" name="address"
-                                    placeholder="endereco" maxlength="50">
+                                    placeholder="endereco" maxlength="50" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="number-address" class="form-label">Bairro:</label>
                                 <input type="text" class="form-control" id="district" name="district"
-                                    placeholder="bairro" maxlength="32">
+                                    placeholder="bairro" maxlength="32" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="city" class="form-label">Cidade:</label>
                                 <input type="text" class="form-control" id="city" name="city"
-                                    placeholder="insira sua cidade" maxlength="20">
+                                    placeholder="insira sua cidade" maxlength="20" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="country" class="form-label">País:</label>
                                 <input type="text" class="form-control" id="country" name="country" placeholder="país"
-                                    maxlength="30">
+                                    maxlength="30" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="confirm-password" class="form-label">Email:</label>
                                 <input type="email" class="form-control" id="email"
-                                    name="email" placeholder="email@email" maxlength="40">
+                                    name="email" placeholder="email@email" maxlength="40" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
                         </div>
                         <!-- Terceira coluna-->
                         <div class="col">
                             <div class="mb-3">
                                 <label for="number-address" class="form-label">Número:</label>
-                                <input type="text" class="form-control" id="number-address" name="number-address" placeholder="numero" maxlength="5">
+                                <input type="text" class="form-control" id="number-address" name="number-address" 
+                                placeholder="numero" maxlength="5" required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="complement" class="form-label">Complemento:</label>
-                                <input type="text" class="form-control" id="complement" name="complement" placeholder="Complemento" maxlength="30">
+                                <input type="text" class="form-control" id="complement" name="complement" 
+                                placeholder="Complemento" maxlength="30" >
+
                             </div>
 
                             <div class="mb-3">
                                 <label for="uf" class="form-label">UF:</label>
-                                <input type="text" class="form-control" id="uf" name="uf" placeholder="UF" maxlength="2">
+                                <input type="text" class="form-control" id="uf" name="uf" placeholder="UF" maxlength="2" 
+                                required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
 
 
                             <div class="mb-3">
                                 <label for="cep" class="form-label">CEP:</label>
-                                <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" maxlength="9">
+                                <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" maxlength="9"
+                                required>
+                                <div class="valid-feedback">Válido.</div>
+                                <div class="invalid-feedback">Campo inválido.</div>
                             </div>
                         </div>
                     </div>  
@@ -124,7 +158,7 @@
                     <button type="submit" class="btn btn-success btn-block btn-lg" name="button">Cadastrar</button>
 
                     <div>
-                        <p>Ja possui uma conta? <a href="login.html">Logar</a></p>
+                        <p>Ja possui uma conta? <a href="login.php">Logar</a></p>
                     </div>
                 </form>
             </div>
@@ -161,24 +195,46 @@
 
                 $u->conect("projeto_aplicacao","localhost","root","");
 
-                if($u->msmErro==""){ //Nao deu erro
+                if($u->msgErro==""){ //Nao deu erro
 
-                    if($senha==$conf_senha){   //Confirmar a senha
+                    //Confirmar a senha
+                    if($senha==$conf_senha){   
+                        //Verificar se o cadastro deu certo
                         if($u->register($nome_completo,$nome_usuario,$CPFCNPJ,$email,$senha,$endereco,
-                        $nr_endereco,$bairro,$complemento,$cidade,$uf,$cep,$pais)){  //Verificar se o cadastro deu certo
-                            echo "Cadastrado com sucesso";
+                        $nr_endereco,$bairro,$complemento,$cidade,$uf,$cep,$pais)){ 
+                            ?>
+                            <div id="msg-sucesso">
+                                Cadastrado com sucesso
+                            </div>
+                            <?php
                         }else{
-                            echo "ja cadastrado";
+                            ?>
+                            <div class="msg-erros">
+                                ja cadastrado
+                            </div>
+                            <?php
                         }
                     }else{
-                        echo "Senha e confimar senha errados";
+                        ?>
+                        <div class="msg-erros">
+                            Senha e confimar senha errados;
+                        </div>
+                        <?php
                     }
                     
                 }else{
-                    echo "Erro:".$u->msmErro;
+                    ?>
+                    <div class="msg-erros">
+                        <?php echo "Erro:".$u->msgErro;?>
+                    </div>
+                    <?php
                 }
             }else{
-               echo "preencha tudo"; 
+                ?>
+                <div class="msg-erros">
+                    Preencha todos os campos por-favor; 
+               </div>
+               <?php
             }
         }
     

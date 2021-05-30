@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+    require_once 'classes/usuario.php';
+    $u = new usuario();
+?>
+
+
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -25,7 +31,7 @@
     <div class="container">
         <div class="justify-content-center align-item-center row">
             <div class="col-6">
-                <form action="" method="POST" class="needs-validation form-login" novalidate>
+                <form method="POST" class="needs-validation form-login" novalidate>
                     <div class="text-center mb-2">
                         <h2>Login</h2>
                     </div>
@@ -46,10 +52,11 @@
                         <div class="invalid-feedback">Campo inválido.</div>
                     </div>
 
-                    <button type="submit" class="btn btn-success btn-block btn-lg">Logar</button>
+                    <button type="submit" class="btn btn-success btn-block btn-lg" 
+                    name ="login-button">Logar</button>
 
                     <div> 
-                        <p>Não tem uma conta? <a href="cadastro.html">Cadastrar</a></p>
+                        <p>Não tem uma conta? <a href="cadastro.php">Cadastrar</a></p>
                     </div>
                 </form>
             </div>
@@ -57,6 +64,32 @@
             
         </div>
     </div>
+
+    <?php 
+    //Verificar se clicou no botao
+        if(isset($_POST['email'])){
+        $email = addslashes($_POST['email']);
+        $senha = addslashes($_POST['password']);
+
+            //Verificar se os campos nao estao vazios
+            $u->conect("projeto_aplicacao","localhost","root","");
+            if($u->msgErro==""){
+                if($u->login($email,$senha)){
+                    header("location: perfil.php");
+                }else{
+                    ?>
+                    <div id="msg-erro">
+                        Email ou senha incorretos
+                    </div>
+                    <?php
+                }
+            }else{
+                    echo "Erro:".$u->msgErro;                
+            }
+                    
+        }
+    
+    ?>
 
 </body>
 

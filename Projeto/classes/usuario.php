@@ -1,7 +1,7 @@
 <?php
     Class usuario{
         private $pdo;
-        public $msmErro = "";
+        public $msgErro = "";
 
         //Conectar com o banco de dados
         public function conect($db_name,$host,$user,$passw){
@@ -9,7 +9,7 @@
             try {
                 $pdo = new PDO("mysql:dbname=".$db_name.";host=".$host,$user,$passw);
             } catch (PDOException $ex) {
-                $msmErro = $ex->getMessage();
+                $msgErro = $ex->getMessage();
             }
             
         }
@@ -50,26 +50,24 @@
         }
 
         //Logar usuario
-        public function login($CPFCNPJ,$senha){
+        public function login($email,$senha){
             global $pdo;
-            //Verificar se cpf e senha tem no banco
-            $sql = $pdo->prepare("SELECT id_Usuario FROM tbmPessoa
-            WHERE cd_CPFCNPJ = :c AND senha = :s");
-            $sql->bindValue(":c",$CPFCNPJ);
+            global $msgErro;
+
+            //Verificar se email e senha existem no banco de dados
+            $sql = $pdo->prepare("SELECT id_Usuario FROM tbdPessoa
+            WHERE ds_Email LIKE :e AND ds_Senha LIKE :s");
+            $sql->bindValue(":e",$email);
             $sql->bindValue(":s",md5($senha));
             $sql->execute();
-            if($sql->rowCount()> 0){ //Já está cadastrado
-                return false;
-            }else{              //Não está cadastrado
- 
+            if($sql->rowCount()> 0){ //Já está cadastrado   
                 $dado = $sql->fetch();
                 session_start();
                 $_SESSION['id_Usuario'] = $dado['id_Usuario'];
                 return true;  
+            }else{              //Não está cadastrado
+                return false;
             }
         }
-
-
-
     }
 ?>

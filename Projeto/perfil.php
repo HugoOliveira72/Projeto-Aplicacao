@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php 
+  //Inicia a sessão do usuário
+  session_start();
+  //Verifica se ele foi logado, se nao mandar para login
+  if(!isset($_SESSION['id_Usuario'])){
+    header("location: login.php");
+    exit;
+  }
+?>
 <html>
 
 <head>
@@ -36,10 +44,10 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end navbar-color-content" id="navbar-links">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" aria-current="page" href="#" id="home-menu">Home</a>
             <a class="nav-item nav-link" aria-current="page" href="#how-to-donate-area" id="how-to-donate-menu">Como
               doar?</a>
-            <a class="nav-item nav-link" aria-current="page" href="#donation" id="how-to-donate-menu">Doar</a>
+            <a class="nav-item nav-link" aria-current="page" href="#donation-data" id="donate-menu">Doar</a>
+            <a class="nav-item nav-link" aria-current="page" href="desconectar.php" id="exit-menu">Sair</a>
           </div>
         </div>
       </nav>
@@ -50,10 +58,7 @@
 
   </div>
 
-
   <div id="user-data">
-
-
     <div class="container">
       <figure class="text-center">
         <blockquote class="blockquote">
@@ -64,63 +69,63 @@
       <div class="row align-items-start text-center">
         <div class="col">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Nome completo:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <label for="full-name" class="form-label">Nome completo:</label>
+            <input type="text" class="form-control" id="full-name" name="full-name">
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Nome de usuário</label>
-            <input type="text" class="form-control" id="exampleFormControlInput2">
+            <label for="user-name" class="form-label">Nome de usuário</label>
+            <input type="text" class="form-control" id="user-name" name="user-name">
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">CNPJ ou CPF:</label>
-            <input type="email" class="form-control" id="exampleFormControlInput3">
+            <label for="cpf-cnpj" class="form-label">CNPJ ou CPF:</label>
+            <input type="email" class="form-control" id="cpf-cnpj" name="cpf-cnpj">
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Senha:</label>
-            <input type="password" class="form-control" id="exampleFormControlInput3">
+            <label for="cpf-cnpj" class="form-label">Senha:</label>
+            <input type="password" class="form-control" id="cpf-cnpj" name="cpf-cnpj">
           </div>
         </div>
 
         <div class="col">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Endereco:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput4">
+            <label for="address" class="form-label">Endereco:</label>
+            <input type="text" class="form-control" id="address" name="address">
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Bairro:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput5">
+            <label for="district" class="form-label">Bairro:</label>
+            <input type="text" class="form-control" id="district" name="district">
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Cidade:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput5">
+            <label for="city" class="form-label">Cidade:</label>
+            <input type="text" class="form-control" id="city" name="city">
           </div>
 
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">País:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput5">
+            <label for="country" class="form-label">País:</label>
+            <input type="text" class="form-control" id="country" name="country">
           </div>
 
         </div>
         <div class="col">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Número:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput5">
+            <label for="number-address" class="form-label">Número:</label>
+            <input type="text" class="form-control" id="number-address" name="number-address">
           </div>
 
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Complemento:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput5">
+            <label for="complement" class="form-label">Complemento:</label>
+            <input type="text" class="form-control" id="complement" name="complement">
           </div>
 
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">UF:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput5">
+            <label for="complement" class="form-label">UF:</label>
+            <input type="text" class="form-control" id="complement" name="complement">
           </div>
 
 
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">CEP:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput5">
+            <label for="cep" class="form-label">CEP:</label>
+            <input type="text" class="form-control" id="cep" name="cep">
           </div>
 
         </div>

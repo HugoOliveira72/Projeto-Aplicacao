@@ -1,3 +1,4 @@
+/* Formulario de registro */
 html,body{
     height: 100%;
 }
@@ -6,12 +7,19 @@ body{
     display: flex;
     align-items: center;
 }
+div#div1{
+    background-color: rgb(43, 168, 27);
+    width: 50px;
+    height: 50px;
+}
 
-.form-register{
-    background-color: #353D41;
+/* Formulario de registro */
+div#form-register{
+    background-color: #000000;
     border-color: rgb(0, 0, 0);
     border-radius: 10px;
     color: white;
-    padding: 50px;
-    font-size: larger;
+    padding: 0px 0 0 0;
+    font-size: medium;
+
 }

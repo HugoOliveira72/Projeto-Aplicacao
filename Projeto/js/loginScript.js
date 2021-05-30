@@ -15,7 +15,3 @@
     }, false);
 })();
 
-//Verificar senha == confirma senha
-
-var a = get.getElementsById(password);
-var b = get.getElementsById(confirm - password);
