@@ -75,7 +75,7 @@
             $u->conect("projeto_aplicacao","localhost","root","");
             if($u->msgErro==""){
                 if($u->login($email,$senha)){
-                    header("location: perfil.php");
+                    header("location: perfil.php?em=$email");
                 }else{
                     ?>
                     <div id="msg-erro">

@@ -1,4 +1,11 @@
-<?php 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<?php
+  global $email;
   //Inicia a sessão do usuário
   session_start();
   //Verifica se ele foi logado, se nao mandar para login
@@ -6,7 +13,40 @@
     header("location: login.php");
     exit;
   }
+
+    //Conexao
+    $db_name="projeto_aplicacao";
+    $host="localhost";
+    $user="root";
+    $passw="";
+
+    global $pdo;
+    try {
+        $pdo = new PDO("mysql:dbname=".$db_name.";host=".$host,$user,$passw);
+    } catch (PDOException $ex) {
+        $msgErro = $ex->getMessage();
+    }
+
+    $nome;
+    $cpfcnpj;
+
+    //Pegar email
+    $email = $_GET['em'];
+
+    $consulta = $pdo->prepare("SELECT (ds_NomeCompleto) FROM tbdPessoa WHERE ds_Email LIKE ?");
+    $consulta->execute(array("%{$email}%"));
+    $line = $consulta->fetchAll();
+
+    var_dump($line);
+    
+
+    /*$consult = $pdo->prepare("SELECT (ds_NomeCompleto,ds_NomeUsuario,cd_CPFCNPJ,
+    ds_Email,ds_Senha,ds_Endereco,nr_Endereco,ds_Bairro,ds_Complemento,ds_Cidade,cd_UF,
+    cd_CEP,ds_Pais) FROM tbdPessoa"); */
+
+
 ?>
+
 <html>
 
 <head>
@@ -70,7 +110,8 @@
         <div class="col">
           <div class="mb-3">
             <label for="full-name" class="form-label">Nome completo:</label>
-            <input type="text" class="form-control" id="full-name" name="full-name">
+            <input type="text" class="form-control" id="full-name" name="full-name" 
+            value="<?php echo ""?>">
           </div>
           <div class="mb-3">
             <label for="user-name" class="form-label">Nome de usuário</label>

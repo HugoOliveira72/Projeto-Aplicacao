@@ -56,7 +56,7 @@
 
             //Verificar se email e senha existem no banco de dados
             $sql = $pdo->prepare("SELECT id_Usuario FROM tbdPessoa
-            WHERE ds_Email LIKE :e AND ds_Senha LIKE :s");
+            WHERE ds_Email = :e AND ds_Senha = :s");
             $sql->bindValue(":e",$email);
             $sql->bindValue(":s",md5($senha));
             $sql->execute();
