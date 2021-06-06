@@ -1,8 +1,8 @@
 <?php
     require_once 'classes/usuario.php';
     $u = new usuario();
-
 ?>
+
 
 <html>
 
@@ -27,11 +27,7 @@
 </head>
 
 <body>
-    <style>
-        body{
-            background-color:#cccccc;
-        }
-    </style>
+
     <div class="container">
         <div class="justify-content-center align-item-center row">
             <div class="col-6">
@@ -79,7 +75,7 @@
             $u->conect("projeto_aplicacao","localhost","root","");
             if($u->msgErro==""){
                 if($u->login($email,$senha)){
-                    header("location:perfil.php?em=$email");
+                    header("location: perfil.php?em=$email");
                 }else{
                     ?>
                     <div id="msg-erro">
