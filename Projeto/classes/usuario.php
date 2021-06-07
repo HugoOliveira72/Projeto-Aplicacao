@@ -62,8 +62,6 @@
             $sql->execute();
             if($sql->rowCount()> 0){ //Já está cadastrado   
                 $dado = $sql->fetch();
-                session_start();
-                $_SESSION['id_Usuario'] = $dado['id_Usuario'];
                 return true;  
             }else{              //Não está cadastrado
                 return false;
