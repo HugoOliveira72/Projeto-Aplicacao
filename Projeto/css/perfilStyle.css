@@ -19,7 +19,7 @@ body{
 
 /*Navbar*/
 header ,.navbar{
-    background-color: #353D41;
+    background-color: #353D41; 
 }
 
 #nav-container{
@@ -66,13 +66,6 @@ input{
     outline: none;
 }
 
-#button{
-    width: 300px;
-    justify-items: center;
-    margin-left: 500px;
-    margin-top: 10px;
-}
- 
 /*COmo doar*/
 
 #how-to-donate-area{
@@ -101,3 +94,5 @@ input{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+/*Divs erros/sucesso*/
