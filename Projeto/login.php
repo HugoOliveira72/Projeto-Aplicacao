@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+<?php
+    require_once 'classes/usuario.php';
+    $u = new usuario();
+
+?>
+
+<html>
+    <style>
+        body{
+            display:block;
+        }
+    </style>
 
 <head>
     <meta charset="UTF-8">
@@ -18,14 +29,19 @@
     <link rel="stylesheet" href="css/loginStyle.css">
     <script src="js/loginScript.js"></script>
     <title>Login</title>
+    <link rel="icon" type="img/" href="img/duila.jpg">
 </head>
 
 <body>
-
+    <style>
+        body{
+            background-color:#cccccc;
+        }
+    </style>
     <div class="container">
         <div class="justify-content-center align-item-center row">
             <div class="col-6">
-                <form action="" method="POST" class="needs-validation form-login" novalidate>
+                <form method="POST" class="needs-validation form-login" novalidate>
                     <div class="text-center mb-2">
                         <h2>Login</h2>
                     </div>
@@ -46,17 +62,46 @@
                         <div class="invalid-feedback">Campo inválido.</div>
                     </div>
 
-                    <button type="submit" class="btn btn-success btn-block btn-lg">Logar</button>
+                    <button type="submit" class="btn btn-success btn-block btn-lg" 
+                    name ="login-button">Logar</button>
 
                     <div> 
-                        <p>Não tem uma conta? <a href="cadastro.html">Cadastrar</a></p>
+                        <p>Não tem uma conta? <a href="cadastro.php">Cadastrar</a></p>
                     </div>
+                    <?php 
+    //Verificar se clicou no botao
+        if(isset($_POST['email'])){
+        $email = addslashes($_POST['email']);
+        $senha = addslashes($_POST['password']);
+
+            //Verificar se os campos nao estao vazios
+            $u->conect("projeto_aplicacao","localhost","root","");
+            if($u->msgErro==""){
+                if($u->login($email,$senha)){
+                    header("location:perfil.php?em=$email");
+                }else{
+                    ?>
+                    <div style="background-color:red; margin-left:120px; padding:5px; padding-left:15px; margin-top:15px;width:250px; border-radius:10px; ">
+                        Email ou senha incorretos!
+                    </div>
+                    <?php
+                }
+            }else{
+                    echo "Erro:".$u->msgErro;                
+            }
+                    
+        }
+    
+    ?>
                 </form>
+                
             </div>
 
             
         </div>
     </div>
+
+
 
 </body>
 
